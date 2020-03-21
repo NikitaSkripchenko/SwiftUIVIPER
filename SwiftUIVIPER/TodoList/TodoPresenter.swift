@@ -54,5 +54,9 @@ extension TodoPresenter: TodoPresenterViewInterface {
         let newTodo = TodoEntity(id: todo.id, title: todo.title, completed: !todo.completed)
         self.viewModel.todos[index] = newTodo
     }
+    
+    func open(todo: TodoEntity) {
+         print(1)
+    }
 
 }

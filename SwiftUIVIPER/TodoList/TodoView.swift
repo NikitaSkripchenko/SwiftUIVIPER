@@ -11,7 +11,6 @@ import UIKit
 import SwiftUI
 
 struct TodoView: ViewInterface, View {
-
     var presenter: TodoPresenterViewInterface!
     
     @EnvironmentObject var env: TodoEnvironment
@@ -50,7 +49,8 @@ struct TodoView: ViewInterface, View {
                         ForEach(self.viewModel.todos) { todo in
                             TodoListItemView(todo: todo)
                             .onTapGesture {
-                                self.presenter.toggle(todo: todo)
+                                //self.presenter.toggle(todo: todo)
+                                self.presenter.open(id : todo.id)
                             }
                         }
                         .onDelete(perform: self.delete)

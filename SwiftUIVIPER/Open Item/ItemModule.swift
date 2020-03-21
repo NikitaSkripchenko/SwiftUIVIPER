@@ -1,8 +1,8 @@
 //
-//  TodoModule.swift
+//  ItemModule.swift
 //  SwiftUIVIPER
 //
-//  Created by Trexoz MCL on 08.01.2020.
+//  Created by Trexoz MCL on 19.03.2020.
 //  Copyright © 2020 nktskr. All rights reserved.
 //
 
@@ -12,31 +12,32 @@ import Combine
 
 
 // MARK: - router
-protocol TodoRouterPresenterInterface: RouterPresenterInterface {
+protocol TodoItemRouterPresenterInterface: RouterPresenterInterface {
 
 }
 
 // MARK: - presenter
-protocol TodoPresenterRouterInterface: PresenterRouterInterface {
+protocol TodoItemPresenterRouterInterface: PresenterRouterInterface {
 
 }
 
-protocol TodoPresenterInteractorInterface: PresenterInteractorInterface {
+protocol TodoItemPresenterInteractorInterface: PresenterInteractorInterface {
 
 }
 
-protocol TodoPresenterViewInterface: PresenterViewInterface {
+protocol TodoItemPresenterViewInterface: PresenterViewInterface {
     func fetch()
     func newTodo(with title: String)
     func delete(at offsets: IndexSet)
     func toggle(todo: TodoEntity)
+    func open(todo : TodoEntity)
 }
 
-protocol TodoInteractorPresenterInterface: InteractorPresenterInterface {
+protocol TodoItemInteractorPresenterInterface: InteractorPresenterInterface {
     func requestPublisher() -> AnyPublisher<[TodoEntity], HTTP.Error>
 }
 
-final class TodoModule: ModuleInterface {
+final class TodoItemModule: ModuleInterface {
     typealias View = TodoView
     typealias Presenter = TodoPresenter
     typealias Router = TodoRouter
@@ -59,3 +60,4 @@ final class TodoModule: ModuleInterface {
         return viewController
     }
 }
+
